@@ -2,7 +2,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductCard = ({ product }) => {
+interface ProductCardProps {
+    product: {
+        id: string, 
+        name: string,
+        image: string
+    }
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden m-6">
       <div style={{ position: "relative" }}>

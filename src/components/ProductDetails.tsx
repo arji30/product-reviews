@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const router = useRouter();
   const { productId } = router.query;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     router.push("/submission");
   };

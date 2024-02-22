@@ -1,12 +1,16 @@
 import React from "react";
 import { signOut } from "next-auth/react";
 
-const Navbar = ({ username }) => {
+interface NavbarProps {
+    username: string | undefined;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ username }) => {
 
     async function handleLogout() {
         await signOut();
     }
-    
+
     return (
         <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <div className="text-white font-bold text-xl">ProductReviews</div>
