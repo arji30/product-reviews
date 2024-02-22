@@ -1,6 +1,7 @@
 import React from "react";
 import { signOut } from "next-auth/react";
 import { hostUrl } from "@/lib/variables";
+import Link from 'next/link';
 
 interface NavbarProps {
     username: string | undefined;
