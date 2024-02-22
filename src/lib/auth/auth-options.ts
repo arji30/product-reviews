@@ -11,8 +11,8 @@ export const authOptions: NextAuthOptions = {
     async signIn({ account }) {
       return Boolean(
         account?.provider === provider.id &&
-          account.access_token &&
-          account.id_token
+          account?.access_token &&
+          account?.id_token
       );
     },
     // "account" and "profile" are only passed the first time this callback is called on a new session, after the user signs in
