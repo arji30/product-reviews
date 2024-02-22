@@ -14,7 +14,9 @@ const Navbar: React.FC<NavbarProps> = ({ username }) => {
 
     return (
         <nav className="bg-gray-800 p-4 flex justify-between items-center">
-        <div className="text-white font-bold text-xl">ProductReviews</div>
+        <Link href="./">
+            <div className="text-white font-bold text-xl">ProductReviews</div>
+        </Link>
         {username && (
             <div className="text-white flex items-center">
             <p className="px-2 py-2">{username}</p>
