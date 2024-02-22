@@ -3,7 +3,7 @@ import { PROVIDER_ATTRIBUTES_KEY, provider } from "@/lib/auth/auth-provider";
 import { UserInfo } from "@/types/types";
 
 export const authOptions: NextAuthOptions = {
-  debug: true,
+  debug: false,
   session: { strategy: "jwt" },
   providers: [provider],
   callbacks: {
