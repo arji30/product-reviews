@@ -1,19 +1,6 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-
-const products = [
-  {
-    id: "1",
-    name: "Product 1",
-    image: "product1.jpg",
-  },
-  {
-    id: "2",
-    name: "Product 2",
-    image: "product2.jpg",
-  },
-
-];
+import products from '@/lib/products'
 
 const ProductList = () => {
   return (

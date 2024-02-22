@@ -3,12 +3,24 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useAuthentication } from "@/lib/hooks/use-authentication";
 import Navbar from "@/components/NavBar";
+import products from "@/lib/products"; 
 
 const ProductDetails = () => {
   const { user } = useAuthentication();
   const [review, setReview] = useState("");
   const router = useRouter();
   const { productId } = router.query;
+  const [product, setProduct] = useState<null | { id: string; name: string; image: string }>(null);
+
+  useEffect(() => {
+    // Find the product based on productId from the products array
+    const foundProduct = products.find((p) => p.id === productId);
+    if (foundProduct === undefined) {
+      setProduct(null); // Set state to null if product is not found
+    } else {
+      setProduct(foundProduct); // Set state to the found product
+    }
+  }, [productId]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -116,18 +128,22 @@ const ProductDetails = () => {
         )}
       </div>
       <div className="flex flex-col items-center justify-center w-1/2 p-8">
-        <h1 className="text-3xl font-bold mb-4">Product Details</h1>
-        <div className="mb-4">
-          <Image
-            src={`/product${productId}.jpg`} // Assuming your product images are stored in /public/products/ directory with filenames as product IDs
-            alt="Product Image"
-            width={300}
-            height={300}
-          />
+          <h1 className="text-3xl font-bold mb-4">Product Details</h1>
+          {product && (
+            <>
+              <div className="mb-4">
+                <Image
+                  src={`/${product.image}`} 
+                  alt="Product Image"
+                  width={300}
+                  height={300}
+                />
+              </div>
+              <h2 className="text-xl font-semibold">{product.name}</h2>
+            </>
+          )}
         </div>
-        <h2 className="text-xl font-semibold">{`Product ${productId}`}</h2>
       </div>
-    </div>
     </>
   );
 };

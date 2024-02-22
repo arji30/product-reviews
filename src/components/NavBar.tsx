@@ -15,7 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ username }) => {
 
     return (
         <nav className="bg-gray-800 p-4 flex justify-between items-center">
-        <Link href="./">
+        <Link href="https://product-reviews-stackup.vercel.app">
             <div className="text-white font-bold text-xl">ProductReviews</div>
         </Link>
         {username && (
