@@ -12,9 +12,7 @@ export async function auth(
   const accessToken = session?.accessToken;
   const userId = session?.userId;
   const user = session?.user;
-  console.log("user is: ");
-  console.dir(user);
-
+  
   if (!accessToken || !userId) {
     throw new ApiError({
       code: "NOT_AUTHENTICATED",

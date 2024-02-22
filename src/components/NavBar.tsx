@@ -1,5 +1,6 @@
 import React from "react";
 import { signOut } from "next-auth/react";
+import { hostUrl } from "@/lib/variables";
 
 interface NavbarProps {
     username: string | undefined;
@@ -8,7 +9,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ username }) => {
 
     async function handleLogout() {
-        await signOut();
+        await signOut({callbackUrl: hostUrl});
     }
 
     return (

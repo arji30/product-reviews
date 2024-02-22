@@ -22,29 +22,30 @@ export const authOptions: NextAuthOptions = {
       if (profile && profileItems) {
         let userDID: string;
         let user: UserInfo = {};
-        console.log("ProfileItems are");
-        console.dir(profileItems);
+       
         userDID = profileItems.find(
           (item: any) => typeof item.did === "string"
         )?.did;
         user.email = profileItems.find(
           (item: any) => typeof item.email === "string"
         )?.email;
-        console.log("new email", user.email);
+      
         user.country = profileItems.find(
           (item: any) => typeof item.country === "string"
         )?.country;
-        console.log("new country", user.country);
+        
         user.givenName = profileItems.find(
           (item: any) => typeof item.givenName === "string"
         )?.givenName;
-        console.log("new name", user.givenName);
+      
         user.familyName = profileItems.find(
           (item: any) => typeof item.familyName === "string"
         )?.familyName;
+
         user.postalCode = profileItems.find(
           (item: any) => typeof item.postalCode === "string"
         )?.postalCode;
+        
         user.phoneNumber = profileItems.find(
           (item: any) => typeof item.phoneNumber === "string"
         )?.phoneNumber;    
